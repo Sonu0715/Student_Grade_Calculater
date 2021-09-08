@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grade Calculator</title>
+</head>
+<body>
+<div class="main">
+    <div class="student"> 
+        <h1>STUDENT REPORT CARD</h1>
+        <div class="inputMarks">
+            <div class="eachInput">
+                <input type="text" class="app_form" placeholder="ENTER WEB PROGRAMMING MARKS" id="wd"><br/>
+            </div>
+            <div class="eachInput">
+                <input type="text" class="app_form" placeholder="ENTER COMPUTER MARKS" id="com"><br/>
+            </div>
+    
+            <div class="eachInput">
+                <input type="text" class="app_form" placeholder="ENTER MATHS MARKS" id="maths"><br/>
+            </div>
+            <div class="eachInput">
+                <input type="text" class="app_form" placeholder="ENTER PHYSICS MARKS" id="phy"><br/>
+            </div>
+             <div class="eachInput">
+                 <input type="button" name="" value="showPercentage" class="app_form" onclick="calcy()">
+            </div>
+                <div>
+                    <div class="showName">
+                        <p id="showData"></p>
+                    </div>
+
+                </div>    
+    
+        </div>
+    
+    </div>
+
+
+</div>
+<script>
+    const calcy=()=>{
+    let wd = document.getElementById("wd").value;
+    let com = document.getElementById("com").value;
+    let maths = document.getElementById("maths").value;
+    let physics = document.getElementById("phy").value;
+    let grade = "";
+
+    let totalMarks = parseFloat(wd)+parseFloat(com)+parseFloat(maths)+parseFloat(physics);
+
+    let perc = (totalMarks/400)*100;
+
+    if(perc <=100 && perc>=80){
+        grade="A";
+    }else if(perc <=79 && perc>=60){
+        grade="B";
+    }else if(perc <=59 && perc>=40){
+        grade="C";
+    }else{
+        grade:"F";
+    }
+
+    if(perc>=35){
+        document.getElementById("showData").innerHTML=`You got ${totalMarks} out of 400 and percentage is ${perc}%.<br/>
+    Your grade is ${grade}.You are PASS.`
+    }else{
+        document.getElementById("showData").innerHTML=`You got ${totalMarks} out of 400 and percentage is ${perc}%.<br/>
+    Your grade is ${grade}. You are FAIL.`
+    }
+    }
+</script>
+
+</body>
+</html>
